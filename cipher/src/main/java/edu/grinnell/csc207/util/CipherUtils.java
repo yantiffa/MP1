@@ -65,7 +65,7 @@ public class CipherUtils {
       count = 0;
     }
     char current = str.charAt(i);
-    char currentkey = key.charAt(count);
+    char currentkey = key.charAt(count++);
     int newest = (letter2int(current) + letter2int(currentkey)) % 26;
     lst[i]=(int2letter(newest)); 
   }
@@ -89,7 +89,7 @@ public class CipherUtils {
       count = 0;
     }
     char current = str.charAt(i);
-    char currentkey = key.charAt(count);
+    char currentkey = key.charAt(count++);
     int newest = (26 + letter2int(current) - letter2int(currentkey)) % 26;
     lst[i]=(int2letter(newest)); 
   }
