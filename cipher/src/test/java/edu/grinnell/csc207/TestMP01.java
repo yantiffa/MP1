@@ -22,10 +22,9 @@ public class TestMP01 {
   // +--------------+
 
   /*
-   Since some of the project goals are classes with main methods,
-   we have a variety of utility classes that allow us to capture
-   System.in and System.out. We then call the main method and check
-   the results. 
+   * Since some of the project goals are classes with main methods, we have a variety of utility
+   * classes that allow us to capture System.in and System.out. We then call the main method and
+   * check the results.
    */
 
   // +-----------+---------------------------------------------------
@@ -35,33 +34,13 @@ public class TestMP01 {
   /**
    * Blank output for AllCaesar
    */
-  private static final String ALL_CAESAR_EMPTY = ""
-      .concat("n = a: \n")
-      .concat("n = b: \n")
-      .concat("n = c: \n")
-      .concat("n = d: \n")
-      .concat("n = e: \n")
-      .concat("n = f: \n")
-      .concat("n = g: \n")
-      .concat("n = h: \n")
-      .concat("n = i: \n")
-      .concat("n = j: \n")
-      .concat("n = k: \n")
-      .concat("n = l: \n")
-      .concat("n = m: \n")
-      .concat("n = n: \n")
-      .concat("n = o: \n")
-      .concat("n = p: \n")
-      .concat("n = q: \n")
-      .concat("n = r: \n")
-      .concat("n = s: \n")
-      .concat("n = t: \n")
-      .concat("n = u: \n")
-      .concat("n = v: \n")
-      .concat("n = w: \n")
-      .concat("n = x: \n")
-      .concat("n = y: \n")
-      .concat("n = z: \n");
+  private static final String ALL_CAESAR_EMPTY = "".concat("n = a: \n").concat("n = b: \n")
+      .concat("n = c: \n").concat("n = d: \n").concat("n = e: \n").concat("n = f: \n")
+      .concat("n = g: \n").concat("n = h: \n").concat("n = i: \n").concat("n = j: \n")
+      .concat("n = k: \n").concat("n = l: \n").concat("n = m: \n").concat("n = n: \n")
+      .concat("n = o: \n").concat("n = p: \n").concat("n = q: \n").concat("n = r: \n")
+      .concat("n = s: \n").concat("n = t: \n").concat("n = u: \n").concat("n = v: \n")
+      .concat("n = w: \n").concat("n = x: \n").concat("n = y: \n").concat("n = z: \n");
 
   // +---------------+-----------------------------------------------
   // | Static fields |
@@ -141,10 +120,8 @@ public class TestMP01 {
   /**
    * Followup on a test of a main method.
    *
-   * @param expectedOut
-   *   The expected output. Set to null if we expect it to fail.
-   * @param msg
-   *   The messsage to display.
+   * @param expectedOut The expected output. Set to null if we expect it to fail.
+   * @param msg The messsage to display.
    */
   public void checkMain(String expectedOut, String msg) {
     String outString = outbytes.toString();
@@ -154,10 +131,8 @@ public class TestMP01 {
       assertEquals("", outString, msg);
       assertEquals("Error:", errString.substring(0, 6), msg);
     } else {
-      if ((expectedOut.length() > 0)
-          && (expectedOut.charAt(expectedOut.length() - 1) != '\n')
-          && (outString.length() > 0)
-          && (outString.charAt(outString.length() - 1) == '\n')) {
+      if ((expectedOut.length() > 0) && (expectedOut.charAt(expectedOut.length() - 1) != '\n')
+          && (outString.length() > 0) && (outString.charAt(outString.length() - 1) == '\n')) {
         outString = outString.substring(0, outString.length() - 1);
       } // if
       assertEquals(expectedOut, outString, msg);
@@ -168,12 +143,9 @@ public class TestMP01 {
   /**
    * A test of AllCaesar.
    *
-   * @param args
-   *   The command-line parameters.
-   * @param expectedOut
-   *   The expected output. Set to null if we expect it to fail.
-   * @param msg
-   *   The messsage to display.
+   * @param args The command-line parameters.
+   * @param expectedOut The expected output. Set to null if we expect it to fail.
+   * @param msg The messsage to display.
    */
   public void allCaesarTest(String args[], String expectedOut, String msg) {
     redirectStandardFDs();
@@ -185,12 +157,9 @@ public class TestMP01 {
   /**
    * A standard cipher test.
    *
-   * @param level
-   *   The level of the test ("R", "M", or "E")
-   * @param args
-   *   Simulated command-line arguments.
-   * @param expectedOutput
-   *   The expected output. Set to null if we expect it to fail.
+   * @param level The level of the test ("R", "M", or "E")
+   * @param args Simulated command-line arguments.
+   * @param expectedOutput The expected output. Set to null if we expect it to fail.
    */
   public void cipherTest(String level, String[] args, String expectedOut) {
     String msg = level + ": " + "Cipher";
@@ -231,8 +200,7 @@ public class TestMP01 {
   } // testCaesarEncryptReturnsString()
 
   /**
-   * Ensure that vigenereEncrypt returns a non-empty string given
-   * non-empty input.
+   * Ensure that vigenereEncrypt returns a non-empty string given non-empty input.
    */
   @Test
   public void testVigenereEncryptReturnsNonEmptyString() {
@@ -242,8 +210,7 @@ public class TestMP01 {
   } // testVigenereEncryptReturnsNonEmptyString()
 
   /**
-   * Ensure that vigenereEncrypt returns a non-empty string given
-   * non-empty input.
+   * Ensure that vigenereEncrypt returns a non-empty string given non-empty input.
    */
   @Test
   public void testVigenereDecryptReturnsNonEmptyString() {
@@ -257,105 +224,80 @@ public class TestMP01 {
   // +-------------------------+
 
   /**
-   * Ensure that caesarEncrypt returns the right string for a variety
-   * of keys.
+   * Ensure that caesarEncrypt returns the right string for a variety of keys.
    */
-   @Test
-   public void testCaesarEncrypt() {
-     assertEquals("abcdefghijklmnopqrstuvwxyz",
-         CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'a'),
-         "M: caesarEncrypt with 'a'");
-     assertEquals("bcdefghijklmnopqrstuvwxyza",
-         CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'b'),
-         "M: caesarEncrypt with 'b'");
-     assertEquals("cdefghijklmnopqrstuvwxyzab",
-         CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'c'),
-         "M: caesarEncrypt with 'c'");
-     assertEquals("defghijklmnopqrstuvwxyzabc",
-         CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'd'),
-         "M: caesarEncrypt with 'd'");
-     assertEquals("uryybjbeyq",
-         CipherUtils.caesarEncrypt("helloworld", 'n'),
-         "M: caesarEncrypt helloworld with 'n'");
+  @Test
+  public void testCaesarEncrypt() {
+    assertEquals("abcdefghijklmnopqrstuvwxyz",
+        CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'a'), "M: caesarEncrypt with 'a'");
+    assertEquals("bcdefghijklmnopqrstuvwxyza",
+        CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'b'), "M: caesarEncrypt with 'b'");
+    assertEquals("cdefghijklmnopqrstuvwxyzab",
+        CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'c'), "M: caesarEncrypt with 'c'");
+    assertEquals("defghijklmnopqrstuvwxyzabc",
+        CipherUtils.caesarEncrypt("abcdefghijklmnopqrstuvwxyz", 'd'), "M: caesarEncrypt with 'd'");
+    assertEquals("uryybjbeyq", CipherUtils.caesarEncrypt("helloworld", 'n'),
+        "M: caesarEncrypt helloworld with 'n'");
   } // testCaesarEncrypt()
 
   /**
-   * Ensure that caesarDecrypt returns the right string for a variety
-   * of keys.
+   * Ensure that caesarDecrypt returns the right string for a variety of keys.
    */
-   @Test
-   public void testCaesarDecrypt() {
-     assertEquals("abcdefghijklmnopqrstuvwxyz",
-         CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'a'),
-         "M: caesarDecrypt with 'a'");
-     assertEquals("zabcdefghijklmnopqrstuvwxy",
-         CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'b'),
-         "M: caesarDecrypt with 'b'");
-     assertEquals("yzabcdefghijklmnopqrstuvwx",
-         CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'c'),
-         "M: caesarDecrypt with 'c'");
-     assertEquals("xyzabcdefghijklmnopqrstuvw",
-         CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'd'),
-         "M: caesarDecrypt with 'd'");
+  @Test
+  public void testCaesarDecrypt() {
+    assertEquals("abcdefghijklmnopqrstuvwxyz",
+        CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'a'), "M: caesarDecrypt with 'a'");
+    assertEquals("zabcdefghijklmnopqrstuvwxy",
+        CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'b'), "M: caesarDecrypt with 'b'");
+    assertEquals("yzabcdefghijklmnopqrstuvwx",
+        CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'c'), "M: caesarDecrypt with 'c'");
+    assertEquals("xyzabcdefghijklmnopqrstuvw",
+        CipherUtils.caesarDecrypt("abcdefghijklmnopqrstuvwxyz", 'd'), "M: caesarDecrypt with 'd'");
   } // testCaesarDecrypt()
 
   /**
-   * Ensure the vigenereEncrypt returns the right result for a variety
-   * of strings (mostly ones I can figure out easily).
+   * Ensure the vigenereEncrypt returns the right result for a variety of strings (mostly ones I can
+   * figure out easily).
    */
   @Test
   public void testVigenereEncrypt() {
-    assertEquals("abcdefg",
-      CipherUtils.vigenereEncrypt("abcdefg", "aaa"),
-      "M: vigenereEncrypt with abcdefg and aaa");
-      
-    assertEquals("acedfhg",
-      CipherUtils.vigenereEncrypt("abcdefg", "abc"),
-      "M: vigenereEncrypt with abcdefg and abc");
-    assertEquals("ace",
-      CipherUtils.vigenereEncrypt("abc", "abcdefg"),
-      "M: vigenereEncrypt with abc and abcdefg");
-    assertEquals("klmnopq",
-      CipherUtils.vigenereEncrypt("lmnopqr", "zzz"),
-      "M: vigenereEncrypt with lmnopqr and zzz");
-    assertEquals("ikmlnpo",
-      CipherUtils.vigenereEncrypt("lmnopqr", "xyz"),
-      "M: vigenereEncrypt with lmnopqr and xyz");
-    assertEquals("acegikmo",
-      CipherUtils.vigenereEncrypt("abcdefgh", "abcdefgh"),
-      "M: vigenereEncrypt with abcdefgh and abcdefgh");
-    assertEquals("hhhhhhhh",
-      CipherUtils.vigenereEncrypt("abcdefgh", "hgfedcba"),
-      "M: vigenereEncrypt with abcdefgh and hgfedcba");
+    assertEquals("abcdefg", CipherUtils.vigenereEncrypt("abcdefg", "aaa"),
+        "M: vigenereEncrypt with abcdefg and aaa");
+
+    assertEquals("acedfhg", CipherUtils.vigenereEncrypt("abcdefg", "abc"),
+        "M: vigenereEncrypt with abcdefg and abc");
+    assertEquals("ace", CipherUtils.vigenereEncrypt("abc", "abcdefg"),
+        "M: vigenereEncrypt with abc and abcdefg");
+    assertEquals("klmnopq", CipherUtils.vigenereEncrypt("lmnopqr", "zzz"),
+        "M: vigenereEncrypt with lmnopqr and zzz");
+    assertEquals("ikmlnpo", CipherUtils.vigenereEncrypt("lmnopqr", "xyz"),
+        "M: vigenereEncrypt with lmnopqr and xyz");
+    assertEquals("acegikmo", CipherUtils.vigenereEncrypt("abcdefgh", "abcdefgh"),
+        "M: vigenereEncrypt with abcdefgh and abcdefgh");
+    assertEquals("hhhhhhhh", CipherUtils.vigenereEncrypt("abcdefgh", "hgfedcba"),
+        "M: vigenereEncrypt with abcdefgh and hgfedcba");
   } // testVigenereEncrypt()
 
   /**
-   * Ensure the vigenereDecrypt returns the right result for a variety
-   * of strings (mostly ones I can figure out easily).
+   * Ensure the vigenereDecrypt returns the right result for a variety of strings (mostly ones I can
+   * figure out easily).
    */
   @Test
   public void testVigenereDecrypt() {
-    assertEquals("abcdefg",
-      CipherUtils.vigenereDecrypt("abcdefg", "aaa"),
-      "M: vigenereDecrypt with abcdefg and aaa");
-    assertEquals("abcdefg",
-      CipherUtils.vigenereDecrypt("acedfhg", "abc"),
-      "M: vigenereDecrypt with acedfhg and abc");
-    assertEquals("abc",
-      CipherUtils.vigenereDecrypt("ace", "abcdefg"),
-      "M: vigenereDecrypt with ace and abcdefg");
-    assertEquals("lmnopqr",
-      CipherUtils.vigenereDecrypt("klmnopq", "zzz"),
-      "M: vigenereDecrypt with klmnopq and zzz");
-    assertEquals("lmnopqr",
-      CipherUtils.vigenereDecrypt("ikmlnpo", "xyz"),
-      "M: vigenereDecrypt with ikmlnpo and xyz");
-    assertEquals("abcdefgh",
-      CipherUtils.vigenereDecrypt("acegikmo", "abcdefgh"),
-      "M: vigenereDecrypt with acegikmo and abcdefgh");
-    assertEquals("abcdefgh",
-      CipherUtils.vigenereDecrypt("hhhhhhhh", "hgfedcba"),
-      "M: vigenereDecrypt with hhhhhhhh and hgfedcba");
+    assertEquals("abcdefg", CipherUtils.vigenereDecrypt("abcdefg", "aaa"),
+        "M: vigenereDecrypt with abcdefg and aaa");
+    assertEquals("abcdefg", CipherUtils.vigenereDecrypt("acedfhg", "abc"),
+        "M: vigenereDecrypt with acedfhg and abc");
+    assertEquals("abc", CipherUtils.vigenereDecrypt("ace", "abcdefg"),
+        "M: vigenereDecrypt with ace and abcdefg");
+    assertEquals("lmnopqr", CipherUtils.vigenereDecrypt("klmnopq", "zzz"),
+        "M: vigenereDecrypt with klmnopq and zzz");
+    assertEquals("lmnopqr", CipherUtils.vigenereDecrypt("ikmlnpo", "xyz"),
+        "M: vigenereDecrypt with ikmlnpo and xyz");
+    assertEquals("abcdefgh", CipherUtils.vigenereDecrypt("acegikmo", "abcdefgh"),
+        "M: vigenereDecrypt with acegikmo and abcdefgh");
+    assertEquals("abcdefgh", CipherUtils.vigenereDecrypt("hhhhhhhh", "hgfedcba"),
+        "M: vigenereDecrypt with hhhhhhhh and hgfedcba");
   } // testVigenereDecrypt()
 
   // +-------------------------+-------------------------------------
@@ -367,9 +309,7 @@ public class TestMP01 {
    */
   @Test
   public void caesarEncryptEmpty() {
-     assertEquals("",
-         CipherUtils.caesarEncrypt("", 'c'),
-         "E: caesarEncrypt of the empty string");
+    assertEquals("", CipherUtils.caesarEncrypt("", 'c'), "E: caesarEncrypt of the empty string");
   } // caesarEncryptEmpty()
 
   /**
@@ -377,9 +317,7 @@ public class TestMP01 {
    */
   @Test
   public void caesarDecryptEmpty() {
-     assertEquals("",
-         CipherUtils.caesarDecrypt("", 'q'),
-         "E: caesarEncrypt of the empty string");
+    assertEquals("", CipherUtils.caesarDecrypt("", 'q'), "E: caesarEncrypt of the empty string");
   } // caesarEncryptEmpty()
 
   /**
@@ -387,9 +325,8 @@ public class TestMP01 {
    */
   @Test
   public void vigenereEncryptEmpty() {
-     assertEquals("",
-         CipherUtils.vigenereEncrypt("", "c"),
-         "E: vigenereEncrypt of the empty string");
+    assertEquals("", CipherUtils.vigenereEncrypt("", "c"),
+        "E: vigenereEncrypt of the empty string");
   } // vigenereEncryptEmpty()
 
   /**
@@ -397,9 +334,8 @@ public class TestMP01 {
    */
   @Test
   public void vigenereDecryptEmpty() {
-     assertEquals("",
-         CipherUtils.vigenereDecrypt("", "qrst"),
-         "E: vigenereEncrypt of the empty string");
+    assertEquals("", CipherUtils.vigenereDecrypt("", "qrst"),
+        "E: vigenereEncrypt of the empty string");
   } // vigenereEncryptEmpty()
 
   // +-----------------------+---------------------------------------
@@ -412,7 +348,7 @@ public class TestMP01 {
   @Test
   public void allCaesarRuns() {
     redirectStandardFDs();
-    AllCaesar.main(new String[] { "encode", "abcde" });
+    AllCaesar.main(new String[] {"encode", "abcde"});
     restoreStandardFDs();
     assertTrue(true, "R: The AllCaesar program runs with correct inputs.");
   } // allCaesarRuns()
@@ -426,8 +362,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarEncryptHelloWorld() {
-    allCaesarTest(new String[] { "encode", "helloworld" },
-        """
+    allCaesarTest(new String[] {"encode", "helloworld"}, """
         n = a: helloworld
         n = b: ifmmpxpsme
         n = c: jgnnqyqtnf
@@ -454,8 +389,7 @@ public class TestMP01 {
         n = x: ebiiltloia
         n = y: fcjjmumpjb
         n = z: gdkknvnqkc
-        """,
-        "M: AllCaesar encode helloworld");
+        """, "M: AllCaesar encode helloworld");
   } // allCaesarEncryptHelloWorld()
 
   /**
@@ -463,8 +397,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarEncryptAlphabet() {
-    allCaesarTest(new String[] { "encode", "abcdefghijklmnopqrstuvwxyz" },
-        """
+    allCaesarTest(new String[] {"encode", "abcdefghijklmnopqrstuvwxyz"}, """
         n = a: abcdefghijklmnopqrstuvwxyz
         n = b: bcdefghijklmnopqrstuvwxyza
         n = c: cdefghijklmnopqrstuvwxyzab
@@ -491,8 +424,7 @@ public class TestMP01 {
         n = x: xyzabcdefghijklmnopqrstuvw
         n = y: yzabcdefghijklmnopqrstuvwx
         n = z: zabcdefghijklmnopqrstuvwxy
-        """,
-        "M: AllCaesar encode abcdefghijklmnopqrstuvwxyz");
+        """, "M: AllCaesar encode abcdefghijklmnopqrstuvwxyz");
   } // allCaesarEncryptAlphabet()
 
   /**
@@ -500,8 +432,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarDecryptDahhksknhz() {
-    allCaesarTest(new String[] { "decode", "dahhksknhz" },
-        """
+    allCaesarTest(new String[] {"decode", "dahhksknhz"}, """
         n = a: dahhksknhz
         n = b: czggjrjmgy
         n = c: byffiqilfx
@@ -528,8 +459,7 @@ public class TestMP01 {
         n = x: gdkknvnqkc
         n = y: fcjjmumpjb
         n = z: ebiiltloia
-        """,
-        "M: AllCaesar decode dahhksknhz");
+        """, "M: AllCaesar decode dahhksknhz");
   } // allCaesarDecryptDahhksknhz()
 
   /**
@@ -537,8 +467,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarDecryptAlphabet() {
-    allCaesarTest(new String[] { "decode", "abcdefghijklmnopqrstuvwxyz" },
-        """
+    allCaesarTest(new String[] {"decode", "abcdefghijklmnopqrstuvwxyz"}, """
         n = a: abcdefghijklmnopqrstuvwxyz
         n = b: zabcdefghijklmnopqrstuvwxy
         n = c: yzabcdefghijklmnopqrstuvwx
@@ -565,8 +494,7 @@ public class TestMP01 {
         n = x: defghijklmnopqrstuvwxyzabc
         n = y: cdefghijklmnopqrstuvwxyzab
         n = z: bcdefghijklmnopqrstuvwxyza
-        """,
-        "M: AllCaesar decode abcdefghijklmnopqrstuvwxyz");
+        """, "M: AllCaesar decode abcdefghijklmnopqrstuvwxyz");
   } // allCaesarDecryptAlphabet()
 
   /**
@@ -574,7 +502,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarErrorZeroArguments() {
-    allCaesarTest(new String[] { }, null, "M: AllCaesar with zero arguments");
+    allCaesarTest(new String[] {}, null, "M: AllCaesar with zero arguments");
   } // allCaesarErrorZeroArguments()
 
   /**
@@ -582,12 +510,8 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarErrorOneArgument() {
-    allCaesarTest(new String[] { "encode" }, 
-        null, 
-        "M: AllCaesar with one argument");
-    allCaesarTest(new String[] { "helloworld" }, 
-        null, 
-        "M: AllCaesar with one argument");
+    allCaesarTest(new String[] {"encode"}, null, "M: AllCaesar with one argument");
+    allCaesarTest(new String[] {"helloworld"}, null, "M: AllCaesar with one argument");
   } // allCaesarErrorOneArgument()
 
   /**
@@ -595,8 +519,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarErrorThreeArguments() {
-    allCaesarTest(new String[] { "encode", "helloworld", "q" }, 
-        null, 
+    allCaesarTest(new String[] {"encode", "helloworld", "q"}, null,
         "M: AllCaesar with three arguments");
   } // allCaesarErrorThreeArguments()
 
@@ -605,48 +528,30 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarErrorInvalidAction() {
-    allCaesarTest(new String[] { "deecode", "helloworld" },
-      null,
-      "M: AllCaesar with invalid action");
-    allCaesarTest(new String[] { "emcode", "helloworld" },
-      null,
-      "M: AllCaesar with invalid action");
-    allCaesarTest(new String[] { "codeen", "helloworld" },
-      null,
-      "M: AllCaesar with invalid action");
-    allCaesarTest(new String[] { "", "helloworld" },
-      null,
-      "M: AllCaesar with invalid action");
+    allCaesarTest(new String[] {"deecode", "helloworld"}, null, "M: AllCaesar with invalid action");
+    allCaesarTest(new String[] {"emcode", "helloworld"}, null, "M: AllCaesar with invalid action");
+    allCaesarTest(new String[] {"codeen", "helloworld"}, null, "M: AllCaesar with invalid action");
+    allCaesarTest(new String[] {"", "helloworld"}, null, "M: AllCaesar with invalid action");
   } // allCaesarErrorInvalidAction
 
   /**
    * Does AllCaesar issue an error with an invalid input string?
    */
   public void allCaesarErrorInvalidString() {
-    allCaesarTest(new String[] { "encode", "Helloworld" },
-      null,
-      "M: AllCaesar with invalid string (\"HelloWorld\")");
-    allCaesarTest(new String[] { "encode", " " },
-      null,
-      "M: AllCaesar with invalid string (\" \")");
-    allCaesarTest(new String[] { "encode", "hello world" },
-      null,
-      "M: AllCaesar with invalid string (\"hello world\")");
-    allCaesarTest(new String[] { "encode", "h3lloworld" },
-      null,
-      "M: AllCaesar with invalid string (\"h3lloworld\")");
-    allCaesarTest(new String[] { "decode", "Helloworld" },
-      null,
-      "M: AllCaesar with invalid string (\"HelloWorld\")");
-    allCaesarTest(new String[] { "decode", " " },
-      null,
-      "M: AllCaesar with invalid string (\" \")");
-    allCaesarTest(new String[] { "decode", "hello world" },
-      null,
-      "M: AllCaesar with invalid string (\"hello world\")");
-    allCaesarTest(new String[] { "decode", "h3lloworld" },
-      null,
-      "M: AllCaesar with invalid string (\"h3lloworld\")");
+    allCaesarTest(new String[] {"encode", "Helloworld"}, null,
+        "M: AllCaesar with invalid string (\"HelloWorld\")");
+    allCaesarTest(new String[] {"encode", " "}, null, "M: AllCaesar with invalid string (\" \")");
+    allCaesarTest(new String[] {"encode", "hello world"}, null,
+        "M: AllCaesar with invalid string (\"hello world\")");
+    allCaesarTest(new String[] {"encode", "h3lloworld"}, null,
+        "M: AllCaesar with invalid string (\"h3lloworld\")");
+    allCaesarTest(new String[] {"decode", "Helloworld"}, null,
+        "M: AllCaesar with invalid string (\"HelloWorld\")");
+    allCaesarTest(new String[] {"decode", " "}, null, "M: AllCaesar with invalid string (\" \")");
+    allCaesarTest(new String[] {"decode", "hello world"}, null,
+        "M: AllCaesar with invalid string (\"hello world\")");
+    allCaesarTest(new String[] {"decode", "h3lloworld"}, null,
+        "M: AllCaesar with invalid string (\"h3lloworld\")");
   } // allCaesarErrorInvalidString()
 
   // +-----------------------+---------------------------------------
@@ -658,9 +563,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarEncryptEmptyString() {
-    allCaesarTest(new String[] { "encode", "" },
-        ALL_CAESAR_EMPTY,
-        "E: AllCaesar encode \"\"");
+    allCaesarTest(new String[] {"encode", ""}, ALL_CAESAR_EMPTY, "E: AllCaesar encode \"\"");
   } // allCaesarEncryptEmptyString()
 
   /**
@@ -668,9 +571,7 @@ public class TestMP01 {
    */
   @Test
   public void allCaesarDecryptEmptyString() {
-    allCaesarTest(new String[] { "decode", "" },
-        ALL_CAESAR_EMPTY,
-        "E: AllCaesar decode \"\"");
+    allCaesarTest(new String[] {"decode", ""}, ALL_CAESAR_EMPTY, "E: AllCaesar decode \"\"");
   } // allCaesarDecryptEmptyString()
 
   // +--------------------+------------------------------------------
@@ -683,7 +584,7 @@ public class TestMP01 {
   @Test
   public void cipherRuns() {
     redirectStandardFDs();
-    Cipher.main(new String[] { "-caesar", "-encode", "abcde", "abcde" });
+    Cipher.main(new String[] {"-caesar", "-encode", "abcde", "abcde"});
     restoreStandardFDs();
     assertTrue(true, "R: The Cipher program runs with correct inputs.");
   } // cipherRuns()
@@ -693,19 +594,14 @@ public class TestMP01 {
   // +--------------------+
 
   /**
-   * Does Cipher appropriately encode with the Caesar cipher using a 
-   * variety of parameter orders?
+   * Does Cipher appropriately encode with the Caesar cipher using a variety of parameter orders?
    */
   @Test
   public void cipherCaesarEncrypt() {
-    cipherTest("M", new String[] { "-caesar", "-encode", "abcde", "a" }, 
-        "abcde");
-    cipherTest("M", new String[] { "-encode", "-caesar", "abcdef", "b" }, 
-        "bcdefg");
-    cipherTest("M", new String[] { "pqrs", "c", "-encode", "-caesar" },
-        "rstu");
-    cipherTest("M", new String[] { "-encode", "pqrs", "d", "-caesar" },
-        "stuv");
+    cipherTest("M", new String[] {"-caesar", "-encode", "abcde", "a"}, "abcde");
+    cipherTest("M", new String[] {"-encode", "-caesar", "abcdef", "b"}, "bcdefg");
+    cipherTest("M", new String[] {"pqrs", "c", "-encode", "-caesar"}, "rstu");
+    cipherTest("M", new String[] {"-encode", "pqrs", "d", "-caesar"}, "stuv");
   } // cipherCaesarEncrypt()
 
   /**
@@ -713,12 +609,9 @@ public class TestMP01 {
    */
   @Test
   public void cipherCaesarDecode() {
-    cipherTest("M", new String[] { "-caesar", "-decode", "abcde", "a" }, 
-        "abcde");
-    cipherTest("M", new String[] { "-decode", "-caesar", "abcdef", "b" }, 
-        "zabcde");
-    cipherTest("M", new String[] { "srqp", "c", "-decode", "-caesar" },
-        "qpon");
+    cipherTest("M", new String[] {"-caesar", "-decode", "abcde", "a"}, "abcde");
+    cipherTest("M", new String[] {"-decode", "-caesar", "abcdef", "b"}, "zabcde");
+    cipherTest("M", new String[] {"srqp", "c", "-decode", "-caesar"}, "qpon");
   } // cipherCaesarDecode()
 
   /**
@@ -726,12 +619,9 @@ public class TestMP01 {
    */
   @Test
   public void cipherVigenereEncrypt() {
-    cipherTest("M", new String[] { "-vigenere", "-encode", "abcdefg", "aaa" },
-        "abcdefg");
-    cipherTest("M", new String[] { "abcdefg", "-encode", "abc", "-vigenere" },
-        "acedfhg");
-    cipherTest("M", new String[] { "-encode", "-vigenere", "abc", "abcdefg" },
-        "ace");
+    cipherTest("M", new String[] {"-vigenere", "-encode", "abcdefg", "aaa"}, "abcdefg");
+    cipherTest("M", new String[] {"abcdefg", "-encode", "abc", "-vigenere"}, "acedfhg");
+    cipherTest("M", new String[] {"-encode", "-vigenere", "abc", "abcdefg"}, "ace");
   } // cipherVigenereEncrypt()
 
   /**
@@ -739,23 +629,21 @@ public class TestMP01 {
    */
   @Test
   public void cipherVigenereDecode() {
-    cipherTest("M", 
-        new String[] { "-vigenere", "-decode", "pqozblxpdhprr", "hello" },
+    cipherTest("M", new String[] {"-vigenere", "-decode", "pqozblxpdhprr", "hello"},
         "imdonetesting");
   } // cipherVigenereDecode()
 
   /**
    * Does Cipher issue an error with the wrong number of parameters?
    */
-  @Test 
+  @Test
   public void cipherWrongNumberOfParams() {
-    cipherTest("M", new String[] { }, null);
-    cipherTest("M", new String[] { "-caesar" }, null);
-    cipherTest("M", new String[] { "-caesar", "-encode" }, null);
-    cipherTest("M", new String[] { "-caesar", "-encode", "hello" }, null);
-    cipherTest("M", new String[] { "-caesar", "-encode", "hello" }, null);
-    cipherTest("M", new String[] { "-caesar", "-encode", "a", "b", "c" }, 
-        null);
+    cipherTest("M", new String[] {}, null);
+    cipherTest("M", new String[] {"-caesar"}, null);
+    cipherTest("M", new String[] {"-caesar", "-encode"}, null);
+    cipherTest("M", new String[] {"-caesar", "-encode", "hello"}, null);
+    cipherTest("M", new String[] {"-caesar", "-encode", "hello"}, null);
+    cipherTest("M", new String[] {"-caesar", "-encode", "a", "b", "c"}, null);
   } // cipherWrongNumberOfParams()
 
   /**
@@ -763,8 +651,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherInvalidString() {
-    cipherTest("M", new String[] { "-encode", "-vigenere", "hi world", "a" },
-        null);
+    cipherTest("M", new String[] {"-encode", "-vigenere", "hi world", "a"}, null);
   } // cipherInvalidString()
 
   /**
@@ -772,8 +659,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherInvalidKey() {
-    cipherTest("M", new String[] { "-vigenere", "-encode", "hi", "W0R1D" },
-        null);
+    cipherTest("M", new String[] {"-vigenere", "-encode", "hi", "W0R1D"}, null);
   } // cipherInvalidKey()
 
   // +--------------------+------------------------------------------
@@ -785,7 +671,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherBadCaesarKey() {
-    cipherTest("E", new String[] { "-caesar", "-decode", "h", "Q" }, null);
+    cipherTest("E", new String[] {"-caesar", "-decode", "h", "Q"}, null);
   } // cipherBadCaesarKey()
 
   /**
@@ -793,7 +679,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherLongCaesarKey() {
-    cipherTest("E", new String[] { "-caesar", "-encode", "h", "bo" }, null);
+    cipherTest("E", new String[] {"-caesar", "-encode", "h", "bo"}, null);
   } // cipherLongCaesarKey()
 
   /**
@@ -801,7 +687,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherEmptyKey() {
-    cipherTest("E", new String[] { "-vigenere", "-decode", "h", "" }, null);
+    cipherTest("E", new String[] {"-vigenere", "-decode", "h", ""}, null);
   } // cipherEmptyKey()
 
 } // TestMP01
