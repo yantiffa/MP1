@@ -90,7 +90,7 @@
 
           <configuration>
 
-            <mainClass>edu.grinnell.csc207.main.Cipher</mainClass>
+            <mainClass>edu.grinnell.csc207.main.AllCaesar</mainClass>
 
           </configuration>
 
@@ -130,7 +130,7 @@
 
                 <addClasspath>true</addClasspath>
 
-                <mainClass>edu.grinnell.csc207.main.Cipher</mainClass>
+                <mainClass>edu.grinnell.csc207.main.AllCaesar</mainClass>
 
               </manifest>
 

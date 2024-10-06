@@ -4,11 +4,11 @@ import java.io.PrintWriter;
 
 import edu.grinnell.csc207.util.CipherUtils;
 /**
- * a main method that will repeatedly read a line the user types, use a BFCalculator to compute the result, and print the result for the user. 
+ * Repeatedly read a line, use a BFCalculator to compute the result, print the result for the user.
  * This type interaction is often called a “REPL”, for “Read-Eval-Print loop”.
  * This is created for the fall 2024 section of CSC-207.
  * @author Tiffany Yan
- */ 
+ */
 public class AllCaesar {
   /**
    * @param args
