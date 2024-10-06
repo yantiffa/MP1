@@ -1,7 +1,8 @@
 package edu.grinnell.csc207.util;
-
 /**
  * The class converts a lowercase letter to the corresponding integer.
+ * This is created for the fall 2024 section of CSC-207.
+ * @author Tiffany Yan
  */
 public class CipherUtils {
   private static int letter2int(char letter) {

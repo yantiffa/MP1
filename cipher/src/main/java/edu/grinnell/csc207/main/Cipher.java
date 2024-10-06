@@ -2,15 +2,12 @@ package edu.grinnell.csc207.main;
 
 import java.io.PrintWriter;
 
-
 import edu.grinnell.csc207.util.CipherUtils;
 
 /**
  * The Cipher program should take four command-line arguments in almost any order.
- * The action -encode or -decode (starts with a dash).
- * The cipher -vigenere or -caesar (starts with a dash).
- * The string to encode.
- * The key (which must be a single letter for the Caesar cipher).
+ * This is created for the fall 2024 section of CSC-207.
+ * @author Tiffany Yan
  */
 public class Cipher {
 /**
